@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matteobuergler <matteobuergler@student.    +#+  +:+       +#+        */
+/*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:52:07 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/15 16:51:34 by matteobuerg      ###   ########.fr       */
+/*   Updated: 2023/05/15 17:46:30 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	error_message(char *message, t_msc *msc)
 			msc->strs_split[i] = free_null(msc->strs_split[i]);
 			i++;
 		}
-		free(msc->strs_split);
+		free_null(msc->strs_split);
 	}
-	free(msc);
+	free_null(msc);
 	exit(1);
 }
 
@@ -51,7 +51,7 @@ void	free_stack(t_list *stack)
 		{
 			tmp = stack;
 			stack = stack->next;
-			free(tmp);
+			free_null(tmp);
 		}
 	}
 }

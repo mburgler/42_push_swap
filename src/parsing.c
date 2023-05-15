@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matteobuergler <matteobuergler@student.    +#+  +:+       +#+        */
+/*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:04:35 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/15 17:02:02 by matteobuerg      ###   ########.fr       */
+/*   Updated: 2023/05/15 18:07:03 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,8 @@ void	append_node(char *str, t_msc *msc)
 	forbidden_character(str, msc);
 	nb = ft_atoi(str);
 	if(check_int_min_max(str, nb) == -1)
-		error_message("Max/ min int violated\n", msc);
-	new_node = ft_calloc(1, sizeof(t_list));
-	if (!new_node)
-		error_message("Allocating stacks failed\n", msc);
+		error_message("Max/ min int violated or invalid number\n", msc);
+	new_node = calloc_check_error(1, sizeof(t_list));
 	new_node->data = nb;
 	new_node->next = NULL;
 	if (!msc->s_a)
@@ -115,4 +113,5 @@ void parsing(char **strs, t_msc *msc)
 		append_node(strs[i], msc);
 		i++;
 	}
+	check_doubles(msc);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matteobuergler <matteobuergler@student.    +#+  +:+       +#+        */
+/*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:52 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/15 16:55:40 by matteobuerg      ###   ########.fr       */
+/*   Updated: 2023/05/15 18:08:42 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_msc
 
 //main.c
 void	init(t_msc *msc);
+void *calloc_check_error(int nmemb, int size);
 
 //error_handler.c
 void	error_message(char *message, t_msc *msc);
@@ -51,5 +52,8 @@ void	forbidden_character(char *str, t_msc *msc);
 int	check_int_min_max(char *str, int nb);
 void	append_node(char *str, t_msc *msc);
 void	parsing(char **strs, t_msc *msc);
+
+//check_doubles.c
+void	check_doubles(t_msc *msc);
 
 #endif

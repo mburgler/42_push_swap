@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matteobuergler <matteobuergler@student.    +#+  +:+       +#+        */
+/*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:43 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/15 17:00:58 by matteobuerg      ###   ########.fr       */
+/*   Updated: 2023/05/15 18:06:33 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,24 @@ void	init(t_msc *msc)
 	msc->strs_split = NULL;
 }
 
+void *calloc_check_error(int nmemb, int size)
+{
+	void *ptr;
+	ptr = ft_calloc(nmemb, size);
+	if (ptr == NULL)
+	{
+		write(2, "Error\nAllocation failed\n", 24);
+		exit(1);
+	}
+	return(ptr);
+}
+
 int	main(int argc, char **argv)
 {
 	t_msc	*msc;
 
-	msc = ft_calloc(1, sizeof(t_msc));	
+	msc = NULL;
+	msc = calloc_check_error(1, sizeof(t_msc));	
 	init(msc);
 	if (argc == 1)
 		error_message("Missing arguments", msc);
@@ -34,10 +47,7 @@ int	main(int argc, char **argv)
 	}
 	else
 		parsing(argv, msc);
-	msc->s_b = ft_calloc(1, sizeof(t_list));
-	if(!msc->s_b)
-		error_message("Allocation fault", msc);
-	
+	msc->s_b = calloc_check_error(1, sizeof(t_list));
 	//TESTER
 	t_list *tmp;
 	tmp = msc->s_a;
