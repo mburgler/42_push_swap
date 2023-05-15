@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:52 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/14 19:29:09 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/15 13:28:49 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ typedef struct s_list
 //main.c
 
 //error_handler.c
-void	error_message(char *message, t_list *s_a, t_list *s_b);
+void	error_message(t_list *s_a, t_list *s_b, char *filename, char **strs);
 void	free_stack(t_list *stack);
 
 //parsing.c
 int	plus_minus_space(char *str, int i);
-void	forbidden_character(char *str, t_list *s_a, t_list *s_b);
-void	check_int_min_max(char *str, int nb, t_list *s_a, t_list *s_b);
-t_list	*append_node(t_list *s_a, t_list *s_b, char *str);
+void	forbidden_character(char *str, t_list *s_a, t_list *s_b, char *filen);
+int	check_int_min_max(char *str, int nb, t_list *s_a, t_list *s_b);
+t_list	*append_node(t_list *s_a, t_list *s_b, char *str, char *filename);
 t_list	*parsing(char **strs, t_list *s_a, t_list *s_b, char *filename);
 
 #endif

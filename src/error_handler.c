@@ -6,18 +6,29 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:52:07 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/14 19:28:55 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/15 13:31:34 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	error_message(char *message, t_list *s_a, t_list *s_b)
+void	error_message(t_list *s_a, t_list *s_b, char *filename, char **strs)
 {
-	perror("Error");
-	ft_printf_2("%s\n", message);
+	int i;
+
+	i = 0;
+	ft_printf_2("Error\n");
 	free_stack(s_a);
 	free_stack(s_b);
+	if(filename == NULL)
+	{
+		while (strs[i])
+		{
+			free(strs[i]);
+			i++
+		}
+		free(strs);
+	}
 	exit(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:43 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/14 17:52:01 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/15 13:35:20 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,28 @@ int	main(int argc, char **argv)
 {
 	t_list	*s_a;
 	t_list	*s_b;
+	char	*filename;
+	char	**strs;
 
 	s_a = NULL;
 	s_b = NULL;
+	filename = NULL;
+	strs = NULL;
 	if (argc == 1)
-		error_message("Too few arguments\n", NULL, NULL);
-	if (argc == 2)
-		s_a = parsing(ft_split(argv[1], ' '), s_a, s_b, NULL);
+		error_message(NULL, NULL, NULL, NULL);
+	else if (argc == 2)
+	{
+		strs = ft_split(argv[1], ' ');
+		s_a = parsing(strs, s_a, s_b, filename);
+	}
 	else
-		s_a = parsing(argv, s_a, s_b, argv[0]);
+	{
+		filename = argv[0];
+		s_a = parsing(argv, s_a, s_b, filename);
+	}
 	s_b = ft_calloc(1, sizeof(t_list));
 	if(!s_b)
-		error_message("Allocating stacks failed\n", s_a, s_b);
+		error_message(s_a, s_b, filename, strs);
 	
 	//TESTER
 	while (s_a)
@@ -35,6 +45,6 @@ int	main(int argc, char **argv)
 		ft_printf("%d\n", s_a->data);
 		s_a = s_a->next;
 	}
-	error_message("NO ERROR -> statement just for freeing\n", s_a, s_b);
+	error_message(s_a, s_b, filename, strs);
 	return (0);
 }

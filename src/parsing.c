@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:04:35 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/14 19:15:25 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/15 13:26:51 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	plus_minus_space(char *str, int i)
 	return (1);
 }
 
-void	forbidden_character(char *str, t_list *s_a, t_list *s_b)
+void	forbidden_character(char *str, t_list *s_a, t_list *s_b, char *filen)
 {
 	int	i;
 	int	j;
@@ -36,14 +36,18 @@ void	forbidden_character(char *str, t_list *s_a, t_list *s_b)
 	j = 0;
 	while (str[i])
 	{
-		if (!"+-0123456789"[j])
-			error_message("Forbidden character\n", s_a, s_b);
+		if (!"+-0123456789"[j] && filen != NULL)
+			error_message("Forbidden character\n", s_a, s_b, str);
+		if (!"+-0123456789"[j] && filen == NULL)
+			error_message("Forbidden character\n", s_a, s_b, NULL);
 		if (str[i] == "+-0123456789"[j++])
 		{
 			if (str[i] == '+' || str[i] == '-')
 			{
-				if(plus_minus_space(str, i) == -1)
-					error_message("Forbidden character after + or -\n", s_a, s_b);
+				if(plus_minus_space(str, i) == -1 && filen != NULL)
+					error_message("Forbidden character after + or -\n", s_a, s_b, str);
+				if(plus_minus_space(str, i) == -1 && filen == NULL)
+					error_message("Forbidden character after + or -\n", s_a, s_b, NULL);
 			}
 			j = 0;
 			i++;
@@ -51,7 +55,7 @@ void	forbidden_character(char *str, t_list *s_a, t_list *s_b)
 	}
 }
 
-void	check_int_min_max(char *str, int nb, t_list *s_a, t_list *s_b)
+int	check_int_min_max(char *str, int nb)
 {
 	int	i;
 	int	sign;
@@ -70,21 +74,23 @@ void	check_int_min_max(char *str, int nb, t_list *s_a, t_list *s_b)
 	while (i >= j)
 	{
 		if (str[i] - '0' != sign * (nb % 10))
-			error_message("Max/ min int violated\n", s_a, s_b);
+			return (-1);
 		i--;
 		nb = nb / 10;
 	}
+	return (0);
 }
 
-t_list	*append_node(t_list *s_a, t_list *s_b, char *str)
+t_list	*append_node(t_list *s_a, t_list *s_b, char *str, char *filename)
 {
 	int		nb;
 	t_list	*new_node;
 	t_list	*tmp;
 
-	forbidden_character(str, s_a, s_b);
+	forbidden_character(str, s_a, s_b, filename);
 	nb = ft_atoi(str);
-	check_int_min_max(str, nb, s_a, s_b);
+	if(check_int_min_max(str, nb) == -1)
+		error_message("Max/ min int violated\n", s_a, s_b, filename);
 	new_node = ft_calloc(1, sizeof(t_list));
 	if (!new_node)
 		error_message("Allocating stacks failed\n", s_a, s_b);
@@ -108,11 +114,13 @@ t_list	*parsing(char **strs, t_list *s_a, t_list *s_b, char *filename)
 		i = 1;
 	while (strs[i])
 	{
-		s_a = append_node(s_a, s_b, strs[i]);
-		free(strs[i]);
+		s_a = append_node(s_a, s_b, strs[i], filename);
+		if(filename == NULL)
+			free(strs[i]);
 		i++;
 		//FREE IN ERROR FUNCTIONS
 	}
-	free(strs);
+	if(filename == NULL)
+		free(strs);
 	return (s_a);
 }
