@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matteobuergler <matteobuergler@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:52 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/15 18:08:42 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:15:57 by matteobuerg      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,6 @@ void	parsing(char **strs, t_msc *msc);
 //check_doubles.c
 void	check_doubles(t_msc *msc);
 
+//sorting_agorithm.c
+void	sort(t_msc *msc);
 #endif

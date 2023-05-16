@@ -16,6 +16,7 @@ FLAGS    := -Wall -Wextra -Werror -g
 SRCS        :=      src/parsing.c \
                           src/check_doubles.c \
                           src/error_handler.c \
+						  src/sorting_algorithm.c \
                           src/main.c \
                           MY_LIB/ft_printf/ft_printf.c \
                           MY_LIB/ft_printf/ft_printf_helper.c \
@@ -100,7 +101,9 @@ re:			fclean all
 ################################################################################
 
 SRCS        :=      src/parsing.c \
-                          src/error_handler.c \
+                          src/check_doubles.c \
+						  src/error_handler.c \
+						  src/sorting_algorithm.c \
                           src/main.c \
                           MY_LIB/ft_printf/ft_printf.c \
                           MY_LIB/ft_printf/ft_printf_helper.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matteobuergler <matteobuergler@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:04:35 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/15 18:07:03 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/15 22:28:17 by matteobuerg      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

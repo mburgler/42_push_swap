@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matteobuergler <matteobuergler@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:43 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/15 18:06:33 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:15:53 by matteobuerg      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	main(int argc, char **argv)
 	else
 		parsing(argv, msc);
 	msc->s_b = calloc_check_error(1, sizeof(t_list));
+	sort(msc);
 	//TESTER
 	t_list *tmp;
 	tmp = msc->s_a;
