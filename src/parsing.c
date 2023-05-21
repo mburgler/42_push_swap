@@ -6,7 +6,7 @@
 /*   By: matteobuergler <matteobuergler@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:04:35 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/15 22:28:17 by matteobuerg      ###   ########.fr       */
+/*   Updated: 2023/05/16 16:29:47 by matteobuerg      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	append_node(char *str, t_msc *msc)
 		error_message("Max/ min int violated or invalid number\n", msc);
 	new_node = calloc_check_error(1, sizeof(t_list));
 	new_node->data = nb;
+	new_node->index = 0;
 	new_node->next = NULL;
 	if (!msc->s_a)
 	{ 

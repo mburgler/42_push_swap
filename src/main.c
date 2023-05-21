@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matteobuergler <matteobuergler@student.    +#+  +:+       +#+        */
+/*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:43 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/16 12:15:53 by matteobuerg      ###   ########.fr       */
+/*   Updated: 2023/05/19 19:25:50 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,38 @@ int	main(int argc, char **argv)
 	else
 		parsing(argv, msc);
 	msc->s_b = calloc_check_error(1, sizeof(t_list));
-	sort(msc);
+	index_stack(msc);
 	//TESTER
 	t_list *tmp;
 	tmp = msc->s_a;
 	while (tmp)
 	{
-		ft_printf("%d\n", tmp->data);
+		ft_printf("###DEBUG STACK A### no %d mit index %d\n", tmp->data, tmp->index);
 		tmp = tmp->next;
 	}
+	tmp = msc->s_b;
+	while (tmp)
+	{
+		ft_printf("###DEBUG STACK B### no %d mit index %d\n", tmp->data, tmp->index);
+		tmp = tmp->next;
+	}
+	ft_printf("\n### AFTER PUSH ###\n\n");
+	push(msc, msc->s_b, msc->s_a);
+	rotate(msc, msc->s_a);
+	tmp = msc->s_a;
+	while (tmp)
+	{
+		ft_printf("###DEBUG STACK A### no %d mit index %d\n", tmp->data, tmp->index);
+		tmp = tmp->next;
+	}
+	tmp = msc->s_b;
+	while (tmp)
+	{
+		ft_printf("###DEBUG STACK B### no %d mit index %d\n", tmp->data, tmp->index);
+		tmp = tmp->next;
+	}
+	ft_printf("###DEBUG### nb of indexes %d\n", msc->nb_of_indexes);
+	ft_printf("###DEBUG### nb of bits %d\n", msc->nb_bits);
 	error_message("NO ERROR, just to free", msc);
 	return (0);
 }

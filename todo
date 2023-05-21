@@ -1,0 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   todo                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/17 09:03:29 by mburgler          #+#    #+#             */
+/*   Updated: 2023/05/18 12:22:35 by mburgler         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/*
+How to improve the algorithm:
+- Stop the algorithm if the stack is sorted (check after each step if sorted)
+- Use rra instead of ra if the number is closer to the bottom of the stack
+	- maybe presort in stack b in such a way that the number is closer to the bottom
+- use synergy effects like rr or ss
+- find a solution for the least 2 significant bits since highest impact on performance
+- not push on b the sorted bottom
+
+*/

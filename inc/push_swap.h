@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matteobuergler <matteobuergler@student.    +#+  +:+       +#+        */
+/*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:52 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/16 12:15:57 by matteobuerg      ###   ########.fr       */
+/*   Updated: 2023/05/19 19:25:46 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_msc
 	t_list	*s_b;
 	char	*filename;
 	char	**strs_split;
+	int		nb_of_indexes;
+	int		nb_bits;
 
 }			t_msc;
 
@@ -57,5 +59,11 @@ void	parsing(char **strs, t_msc *msc);
 void	check_doubles(t_msc *msc);
 
 //sorting_agorithm.c
-void	sort(t_msc *msc);
+void	index_stack(t_msc *msc);
+void	nmb_bits(t_msc *msc);
+
+//operations.c
+void	push(t_msc *msc, t_list *pushto, t_list *pushfrom);
+void	rotate(t_msc *msc, t_list *stack);
+
 #endif
