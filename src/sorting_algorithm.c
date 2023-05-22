@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_algorithm.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matteobuergler <matteobuergler@student.    +#+  +:+       +#+        */
+/*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 22:42:24 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/16 19:59:38 by matteobuerg      ###   ########.fr       */
+/*   Updated: 2023/05/21 21:03:36 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,27 @@ void	nmb_bits(t_msc *msc)
         highest_index >>= 1;
 	}
 }
-// void	binary_radix_sort(t_msc *msc)
-// {
-	
-// }
+
+void	binary_radix_sort(t_msc *msc)
+{
+	int		nb_count;
+	int		shift;
+	int		controlled_index;
+	t_list	*tmp;
+
+	shift = 0;
+	nb_count = msc->nb_of_indexes;
+	tmp = msc->s_a;
+	while(nb_count)
+	{
+		while(nb_of_indexes)
+		{
+			controlled_index = tmp->index;
+			if((tmp->index >> shift) & 1)
+				push_b(msc, msc->s_a);
+			else
+				rotate_a(msc, msc->s_a);
+			msc->nb_bits--;
+		}
+	}
+}

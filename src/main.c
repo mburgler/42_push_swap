@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:43 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/19 19:25:50 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/21 15:36:27 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int argc, char **argv)
 	}
 	else
 		parsing(argv, msc);
-	msc->s_b = calloc_check_error(1, sizeof(t_list));
 	index_stack(msc);
 	//TESTER
 	t_list *tmp;

@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:06:35 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/19 19:34:26 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/21 14:46:39 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,10 @@ void	rotate(t_msc *msc, t_list *stack)
 	new_bottom = stack;
 	while(new_bottom->next)
 		new_bottom = new_bottom->next;
-	new_bottom = stack;
-	new_bottom->next = NULL;
-	if(msc->s_a == new_bottom)
+	new_bottom->next = stack;
+	if(msc->s_a == stack)
 		msc->s_a = stack->next;
-	else if(msc->s_b == new_bottom)
+	else if(msc->s_b == stack)
 		msc->s_b = stack->next;
-
-}	
+	new_bottom->next->next = NULL;
+}
