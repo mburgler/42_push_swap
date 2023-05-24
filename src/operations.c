@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:06:35 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/21 14:46:39 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:58:27 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	push(t_msc *msc, t_list *pushto, t_list *pushfrom)
 		tmp = msc->s_b;
 		msc->s_b = msc->s_b->next;
 		free_null(tmp);
+		ft_printf("pa\n");
 	}
 	else if(msc->s_b == pushto)
 	{
@@ -37,6 +38,7 @@ void	push(t_msc *msc, t_list *pushto, t_list *pushfrom)
 		tmp = msc->s_a;
 		msc->s_a = msc->s_a->next;
 		free_null(tmp);
+		ft_printf("pb\n");
 	}
 }
 
@@ -52,8 +54,14 @@ void	rotate(t_msc *msc, t_list *stack)
 		new_bottom = new_bottom->next;
 	new_bottom->next = stack;
 	if(msc->s_a == stack)
+	{
 		msc->s_a = stack->next;
+		ft_printf("ra\n");
+	}
 	else if(msc->s_b == stack)
+	{
 		msc->s_b = stack->next;
+		ft_printf("rb\n");
+	}
 	new_bottom->next->next = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:43 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/21 15:36:27 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:41:03 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,8 @@ int	main(int argc, char **argv)
 		ft_printf("###DEBUG STACK B### no %d mit index %d\n", tmp->data, tmp->index);
 		tmp = tmp->next;
 	}
-	ft_printf("\n### AFTER PUSH ###\n\n");
-	push(msc, msc->s_b, msc->s_a);
-	rotate(msc, msc->s_a);
+	ft_printf("\n### AFTER SORTING ###\n\n");
+	binary_radix_sort(msc);
 	tmp = msc->s_a;
 	while (tmp)
 	{

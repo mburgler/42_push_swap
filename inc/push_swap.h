@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:52 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/19 19:25:46 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:39:36 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	check_doubles(t_msc *msc);
 //sorting_agorithm.c
 void	index_stack(t_msc *msc);
 void	nmb_bits(t_msc *msc);
+int		elements_in_stack(t_list *stack);
+void	binary_radix_sort(t_msc *msc);
 
 //operations.c
 void	push(t_msc *msc, t_list *pushto, t_list *pushfrom);
