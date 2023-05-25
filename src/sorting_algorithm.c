@@ -6,53 +6,11 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 22:42:24 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/25 15:58:27 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 01:32:41 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-void	index_stack(t_msc *msc)
-{
-	t_list	*tmp;
-	t_list	*tmp2;
-
-	tmp = msc->s_a;
-	while(tmp)
-	{
-		tmp2 = msc->s_a;
-		while(tmp2)
-		{
-			if(tmp->data < tmp2->data)
-				tmp2->index++;
-			tmp2 = tmp2->next;
-		}
-		tmp = tmp->next;
-	}
-	nmb_bits(msc);
-}
-
-void	nmb_bits(t_msc *msc)
-{
-	t_list	*tmp;
-	int		highest_index;
-
-	tmp = msc->s_a->next;
-	msc->nb_of_indexes = 0;
-	msc->nb_bits = 0;
-	while(tmp)
-	{
-		msc->nb_of_indexes++;
-		tmp = tmp->next;
-	}
-	tmp = msc->s_a;
-	highest_index = msc->nb_of_indexes;
-	while(highest_index)
-	{
-		msc->nb_bits++;
-        highest_index >>= 1;
-	}
-}
 
 int	elements_in_stack(t_list *stack)
 {
@@ -102,11 +60,11 @@ void	binary_radix_sort(t_msc *msc)
 	bitshift = 0;
 	while(bitshift < msc->nb_bits)
 	{
-		if(check_if_sorted(msc) == 1)
-			return ;
 		nb_elements = elements_in_stack(msc->s_a);
 		while(nb_elements != 0)
 		{
+			if(check_if_sorted(msc) == 1)
+				return ;
 			if(((msc->s_a->index >> bitshift) & 1) == 0)
 				push(msc, msc->s_b, msc->s_a); //push_to; push_from
 			else
@@ -116,6 +74,8 @@ void	binary_radix_sort(t_msc *msc)
 		nb_elements = elements_in_stack(msc->s_b);
 		while(nb_elements != 0)
 		{
+			if(check_if_sorted(msc) == 1)
+		 		return ;
 			if(((msc->s_b->index >> (bitshift + 1)) & 1) == 1)
 				push(msc, msc->s_a, msc->s_b); //push_to; push_from
 			else
@@ -124,6 +84,12 @@ void	binary_radix_sort(t_msc *msc)
 		}
 		bitshift++;
 	}
+}
+
+void push_back(t_msc *msc)
+{
+	int	nb_elements;
+
 	nb_elements = elements_in_stack(msc->s_b);
 	while (nb_elements != 0)
 	{
@@ -131,4 +97,3 @@ void	binary_radix_sort(t_msc *msc)
 		nb_elements--;
 	}	
 }
-

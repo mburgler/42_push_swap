@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:52 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/25 15:54:10 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 01:32:46 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_msc
 
 }			t_msc;
 
-
 //main.c
 void	init(t_msc *msc);
 void *calloc_check_error(int nmemb, int size);
@@ -59,15 +58,25 @@ void	parsing(char **strs, t_msc *msc);
 //check_doubles.c
 void	check_doubles(t_msc *msc);
 
-//sorting_agorithm.c
+//indexing.c
 void	index_stack(t_msc *msc);
 void	nmb_bits(t_msc *msc);
+
+//sort_few.c
+void	sort_few(t_msc *msc, t_list *s_a);
+void	min_to_top_push(t_msc *msc, int index);
+void	sort_three(t_msc *msc, t_list *s_a, int f);
+
+//sorting_agorithm.c
 int		elements_in_stack(t_list *stack);
 int	check_if_sorted(t_msc *msc);
 void	binary_radix_sort(t_msc *msc);
+void push_back(t_msc *msc);
 
 //operations.c
 void	push(t_msc *msc, t_list *pushto, t_list *pushfrom);
 void	rotate(t_msc *msc, t_list *stack);
+void	swap_a(t_msc *msc);
+void	rra(t_msc *msc);
 
 #endif

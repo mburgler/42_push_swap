@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matteobuergler <matteobuergler@student.    +#+  +:+       +#+        */
+/*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:04:35 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/16 16:29:47 by matteobuerg      ###   ########.fr       */
+/*   Updated: 2023/05/26 01:08:20 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ void	forbidden_character(char *str, t_msc *msc)
 	while (str[i])
 	{
 		if (!"+-0123456789"[j])
-			error_message("Forbidden character\n", msc);
+			error_message("Forbidden character", msc);
 		if (str[i] == "+-0123456789"[j++])
 		{
 			if (str[i] == '+' || str[i] == '-')
 			{
 				if(plus_minus_space(str, i) == -1)
-					error_message("Forbidden character after + or -\n", msc);
+					error_message("Forbidden character after + or -", msc);
 			}
 			j = 0;
 			i++;
@@ -86,7 +86,7 @@ void	append_node(char *str, t_msc *msc)
 	forbidden_character(str, msc);
 	nb = ft_atoi(str);
 	if(check_int_min_max(str, nb) == -1)
-		error_message("Max/ min int violated or invalid number\n", msc);
+		error_message("Max/ min int violated or invalid number", msc);
 	new_node = calloc_check_error(1, sizeof(t_list));
 	new_node->data = nb;
 	new_node->index = 0;
