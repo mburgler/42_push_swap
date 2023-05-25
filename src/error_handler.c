@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:52:07 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/15 17:46:30 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/25 15:44:50 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ void *free_null(void *ptr)
 
 void	error_message(char *message, t_msc *msc)
 {
+	ft_printf_2("Error\n%s\n", message);
+	free_finished(msc);
+}
+
+void	free_finished(t_msc *msc)
+{
 	int i;
 
 	i = 0;
-	ft_printf_2("Error\n%s\n", message);
 	free_stack(msc->s_a);
 	free_stack(msc->s_b);
 	if(msc->strs_split != NULL)
@@ -39,7 +44,6 @@ void	error_message(char *message, t_msc *msc)
 	free_null(msc);
 	exit(1);
 }
-
 
 void	free_stack(t_list *stack)
 {

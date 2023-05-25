@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:52 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/24 17:39:36 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/25 15:54:10 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void *calloc_check_error(int nmemb, int size);
 
 //error_handler.c
 void	error_message(char *message, t_msc *msc);
+void	free_finished(t_msc *msc);
 void	free_stack(t_list *stack);
 void *free_null(void *ptr);
 
@@ -62,6 +63,7 @@ void	check_doubles(t_msc *msc);
 void	index_stack(t_msc *msc);
 void	nmb_bits(t_msc *msc);
 int		elements_in_stack(t_list *stack);
+int	check_if_sorted(t_msc *msc);
 void	binary_radix_sort(t_msc *msc);
 
 //operations.c

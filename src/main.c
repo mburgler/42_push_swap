@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:43 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/24 17:41:03 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:04:57 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,36 +48,6 @@ int	main(int argc, char **argv)
 	else
 		parsing(argv, msc);
 	index_stack(msc);
-	//TESTER
-	t_list *tmp;
-	tmp = msc->s_a;
-	while (tmp)
-	{
-		ft_printf("###DEBUG STACK A### no %d mit index %d\n", tmp->data, tmp->index);
-		tmp = tmp->next;
-	}
-	tmp = msc->s_b;
-	while (tmp)
-	{
-		ft_printf("###DEBUG STACK B### no %d mit index %d\n", tmp->data, tmp->index);
-		tmp = tmp->next;
-	}
-	ft_printf("\n### AFTER SORTING ###\n\n");
 	binary_radix_sort(msc);
-	tmp = msc->s_a;
-	while (tmp)
-	{
-		ft_printf("###DEBUG STACK A### no %d mit index %d\n", tmp->data, tmp->index);
-		tmp = tmp->next;
-	}
-	tmp = msc->s_b;
-	while (tmp)
-	{
-		ft_printf("###DEBUG STACK B### no %d mit index %d\n", tmp->data, tmp->index);
-		tmp = tmp->next;
-	}
-	ft_printf("###DEBUG### nb of indexes %d\n", msc->nb_of_indexes);
-	ft_printf("###DEBUG### nb of bits %d\n", msc->nb_bits);
-	error_message("NO ERROR, just to free", msc);
 	return (0);
 }
