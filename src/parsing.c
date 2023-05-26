@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:04:35 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 01:08:20 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 01:54:14 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	forbidden_character(char *str, t_msc *msc)
 		{
 			if (str[i] == '+' || str[i] == '-')
 			{
-				if(plus_minus_space(str, i) == -1)
+				if (plus_minus_space(str, i) == -1)
 					error_message("Forbidden character after + or -", msc);
 			}
 			j = 0;
@@ -85,16 +85,16 @@ void	append_node(char *str, t_msc *msc)
 
 	forbidden_character(str, msc);
 	nb = ft_atoi(str);
-	if(check_int_min_max(str, nb) == -1)
+	if (check_int_min_max(str, nb) == -1)
 		error_message("Max/ min int violated or invalid number", msc);
 	new_node = calloc_check_error(1, sizeof(t_list));
 	new_node->data = nb;
 	new_node->index = 0;
 	new_node->next = NULL;
 	if (!msc->s_a)
-	{ 
+	{
 		msc->s_a = new_node;
-		return ;  
+		return ;
 	}
 	tmp = msc->s_a;
 	while (tmp->next)
@@ -102,7 +102,7 @@ void	append_node(char *str, t_msc *msc)
 	tmp->next = new_node;
 }
 
-void parsing(char **strs, t_msc *msc)
+void	parsing(char **strs, t_msc *msc)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:52:07 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/25 15:44:50 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 01:52:54 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	free_finished(t_msc *msc)
 	i = 0;
 	free_stack(msc->s_a);
 	free_stack(msc->s_b);
-	if(msc->strs_split != NULL)
+	if (msc->strs_split != NULL)
 	{
 		while (msc->strs_split[i])
 		{
@@ -49,9 +49,9 @@ void	free_stack(t_list *stack)
 {
 	t_list *tmp;
 	
-	if(stack != NULL)
+	if (stack != NULL)
 	{
-		while(stack)
+		while (stack)
 		{
 			tmp = stack;
 			stack = stack->next;

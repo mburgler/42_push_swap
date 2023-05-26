@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:43 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 01:33:35 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 01:49:34 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init(t_msc *msc)
 	msc->strs_split = NULL;
 }
 
-void *calloc_check_error(int nmemb, int size)
+void	*calloc_check_error(int nmemb, int size)
 {
 	void *ptr;
 	ptr = ft_calloc(nmemb, size);
@@ -28,7 +28,7 @@ void *calloc_check_error(int nmemb, int size)
 		write(2, "Error\nAllocation failed\n", 24);
 		exit(1);
 	}
-	return(ptr);
+	return (ptr);
 }
 
 int	main(int argc, char **argv)
@@ -48,7 +48,7 @@ int	main(int argc, char **argv)
 	else
 		parsing(argv, msc);
 	index_stack(msc);
-	if( msc->nb_of_indexes + 1 <= 5)
+	if ( msc->nb_of_indexes + 1 <= 5)
 		sort_few(msc, msc->s_a);
 	else
 	{
