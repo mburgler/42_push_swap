@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:43 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 16:50:48 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 17:56:14 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		exit(1);
-	msc = calloc(1, sizeof(t_msc));
+	msc = ft_calloc(1, sizeof(t_msc));
 	msc_alloc_fail(msc);
 	init(msc);
 	if (argc == 2)
