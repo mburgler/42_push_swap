@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:04:35 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 15:49:09 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:14:02 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ void	forbidden_character(char *str, t_msc *msc)
 	while (str[i])
 	{
 		if (!"+-0123456789"[j])
-			error_message("Forbidden character", msc);
+			error_message(msc);
 		if (str[i] == "+-0123456789"[j++])
 		{
 			if (str[i] == '+' || str[i] == '-')
 			{
 				if (plus_minus_space(str, i) == -1)
-					error_message("Forbidden character after + or -", msc);
+					error_message(msc);
 			}
 			j = 0;
 			i++;
@@ -86,7 +86,7 @@ void	append_node(char *str, t_msc *msc)
 	forbidden_character(str, msc);
 	nb = ft_atoi(str);
 	if (check_int_min_max(str, nb) == -1)
-		error_message("Max/ min int violated or invalid number", msc);
+		error_message(msc);
 	new_node = calloc_check_error(msc, 1, sizeof(t_list));
 	new_node->data = nb;
 	new_node->index = 0;
@@ -112,7 +112,7 @@ void	parsing(char **strs, t_msc *msc)
 	while (strs[i])
 	{
 		if (!strs[i][0])
-			error_message("Empty string", msc);
+			error_message(msc);
 		append_node(strs[i], msc);
 		i++;
 	}

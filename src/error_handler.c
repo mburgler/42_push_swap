@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:52:07 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 16:36:31 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:13:36 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	*free_null(void *ptr)
 	return (NULL);
 }
 
-void	error_message(char *message, t_msc *msc)
+void	error_message(t_msc *msc)
 {
-	ft_printf_2("Error\n%s\n", message);
+	ft_printf_2("Error\n");
 	free_finished(msc);
 }
 

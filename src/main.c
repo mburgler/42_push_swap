@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:43 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 17:56:14 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:13:41 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*calloc_check_error(t_msc *msc, int nmemb, int size)
 
 	ptr = ft_calloc(nmemb, size);
 	if (ptr == NULL)
-		error_message("Allocation failed", msc);
+		error_message(msc);
 	return (ptr);
 }
 
