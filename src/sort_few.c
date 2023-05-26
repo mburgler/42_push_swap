@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:08:39 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 16:52:35 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 18:01:45 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	sort_three(t_msc *msc, t_list *s_a, int f)
 	int	snn;
 
 	sn = s_a->next->index;
-	snn = s_a ->next->next->index;
+	snn = s_a->next->next->index;
 	if (s_a->index == (1 + f) && sn == (0 + f) && snn == (2 + f))
 		swap_a(msc);
 	else if (s_a->index == (2 + f) && sn == (1 + f) && snn == (0 + f))
