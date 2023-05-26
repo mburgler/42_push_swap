@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:52 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 01:32:46 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:49:18 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 typedef struct s_list
 {
-	int	data;
-	int	index;
+	int				data;
+	int				index;
 	struct s_list	*next;
 }			t_list;
 
@@ -40,18 +40,18 @@ typedef struct s_msc
 
 //main.c
 void	init(t_msc *msc);
-void *calloc_check_error(int nmemb, int size);
+void	*calloc_check_error(int nmemb, int size);
 
 //error_handler.c
 void	error_message(char *message, t_msc *msc);
 void	free_finished(t_msc *msc);
 void	free_stack(t_list *stack);
-void *free_null(void *ptr);
+void	*free_null(void *ptr);
 
 //parsing.c
-int	plus_minus_space(char *str, int i);
+int		plus_minus_space(char *str, int i);
 void	forbidden_character(char *str, t_msc *msc);
-int	check_int_min_max(char *str, int nb);
+int		check_int_min_max(char *str, int nb);
 void	append_node(char *str, t_msc *msc);
 void	parsing(char **strs, t_msc *msc);
 
@@ -69,9 +69,10 @@ void	sort_three(t_msc *msc, t_list *s_a, int f);
 
 //sorting_agorithm.c
 int		elements_in_stack(t_list *stack);
-int	check_if_sorted(t_msc *msc);
+int		check_if_sorted(t_msc *msc);
 void	binary_radix_sort(t_msc *msc);
-void push_back(t_msc *msc);
+void	binary_radix_sort_p2(t_msc *msc, int nb_elements, int bitshift);
+void	push_back(t_msc *msc);
 
 //operations.c
 void	push(t_msc *msc, t_list *pushto, t_list *pushfrom);
