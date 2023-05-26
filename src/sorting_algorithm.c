@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 22:42:24 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 16:25:50 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:32:52 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	binary_radix_sort_p2(t_msc *msc, int nb_elements, int bitshift)
 			rotate(msc, msc->s_b);
 		nb_elements--;
 	}
-	push_back(msc);
 }
 
 void	push_back(t_msc *msc)

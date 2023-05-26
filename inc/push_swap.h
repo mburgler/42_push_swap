@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:52 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 15:48:48 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:36:42 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	error_message(char *message, t_msc *msc);
 void	free_finished(t_msc *msc);
 void	free_stack(t_list *stack);
 void	*free_null(void *ptr);
+void	msc_alloc_fail(t_msc *msc);
 
 //parsing.c
 int		plus_minus_space(char *str, int i);

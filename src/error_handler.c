@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:52:07 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 16:18:08 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:36:31 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ void	free_finished(t_msc *msc)
 
 	i = 0;
 	free_stack(msc->s_a);
-	ft_printf("DEBUG");
 	free_stack(msc->s_b);
-	ft_printf("DEBUG");
 	if (msc->strs_split != NULL)
 	{
 		while (msc->strs_split[i])
@@ -43,7 +41,6 @@ void	free_finished(t_msc *msc)
 		}
 		free_null(msc->strs_split);
 	}
-	ft_printf("DEBUG");
 	free_null(msc);
 	exit(1);
 }
@@ -60,5 +57,14 @@ void	free_stack(t_list *stack)
 			stack = stack->next;
 			free_null(tmp);
 		}
+	}
+}
+
+void	msc_alloc_fail(t_msc *msc)
+{
+	if (msc == NULL)
+	{
+		ft_printf_2("Error\nAllocation failed\n");
+		exit(1);
 	}
 }
