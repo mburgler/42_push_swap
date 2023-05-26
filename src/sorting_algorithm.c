@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 22:42:24 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 14:28:36 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:39:17 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	binary_radix_sort(t_msc *msc)
 		while (nb_elements != 0)
 		{
 			if (check_if_sorted(msc) == 1)
-		 		return ;
+				return ;
 			if (((msc->s_b->index >> (bitshift + 1)) & 1) == 1)
 				push(msc, msc->s_a, msc->s_b);
 			else
@@ -86,7 +86,7 @@ void	binary_radix_sort(t_msc *msc)
 	}
 }
 
-void push_back(t_msc *msc)
+void	push_back(t_msc *msc)
 {
 	int	nb_elements;
 

@@ -6,13 +6,13 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:52:07 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 01:52:54 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:35:56 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void *free_null(void *ptr)
+void	*free_null(void *ptr)
 {
 	if (ptr != NULL)
 		free(ptr);
@@ -27,7 +27,7 @@ void	error_message(char *message, t_msc *msc)
 
 void	free_finished(t_msc *msc)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	free_stack(msc->s_a);
@@ -47,8 +47,8 @@ void	free_finished(t_msc *msc)
 
 void	free_stack(t_list *stack)
 {
-	t_list *tmp;
-	
+	t_list	*tmp;
+
 	if (stack != NULL)
 	{
 		while (stack)

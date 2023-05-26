@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:06:35 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 01:50:20 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:36:39 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	push(t_msc *msc, t_list *pushto, t_list *pushfrom)
 {
 	t_list	*new_node;
 	t_list	*tmp;
-	
+
 	if (pushfrom == NULL)
 		return ;
 	new_node = calloc_check_error(1, sizeof(t_list));
@@ -45,7 +45,7 @@ void	push(t_msc *msc, t_list *pushto, t_list *pushfrom)
 // t_list indicates which stack to rotate
 void	rotate(t_msc *msc, t_list *stack)
 {
-	t_list *new_bottom;
+	t_list	*new_bottom;
 
 	if (stack == NULL || stack->next == NULL)
 		return ;
@@ -68,7 +68,7 @@ void	rotate(t_msc *msc, t_list *stack)
 
 void	swap_a(t_msc *msc)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (msc->s_a == NULL || msc->s_a->next == NULL)
 		return ;
@@ -81,8 +81,8 @@ void	swap_a(t_msc *msc)
 
 void	rra(t_msc *msc)
 {
-	t_list *tmp;
-	t_list *new_bottom;
+	t_list	*tmp;
+	t_list	*new_bottom;
 
 	if (msc->s_a == NULL || msc->s_a->next == NULL)
 		return ;
