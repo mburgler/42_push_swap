@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:06:35 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 14:36:39 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:49:03 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	push(t_msc *msc, t_list *pushto, t_list *pushfrom)
 
 	if (pushfrom == NULL)
 		return ;
-	new_node = calloc_check_error(1, sizeof(t_list));
+	new_node = calloc_check_error(msc, 1, sizeof(t_list));
 	new_node->data = pushfrom->data;
 	new_node->index = pushfrom->index;
 	new_node->next = pushto;

@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:52 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 14:49:18 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:48:48 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_msc
 
 //main.c
 void	init(t_msc *msc);
-void	*calloc_check_error(int nmemb, int size);
+void	*calloc_check_error(t_msc *msc, int nmemb, int size);
 
 //error_handler.c
 void	error_message(char *message, t_msc *msc);

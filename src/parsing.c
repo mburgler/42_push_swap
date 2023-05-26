@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:04:35 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 15:20:09 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:49:09 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	append_node(char *str, t_msc *msc)
 	nb = ft_atoi(str);
 	if (check_int_min_max(str, nb) == -1)
 		error_message("Max/ min int violated or invalid number", msc);
-	new_node = calloc_check_error(1, sizeof(t_list));
+	new_node = calloc_check_error(msc, 1, sizeof(t_list));
 	new_node->data = nb;
 	new_node->index = 0;
 	new_node->next = NULL;

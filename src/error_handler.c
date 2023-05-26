@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:52:07 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 14:35:56 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:18:08 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ void	free_finished(t_msc *msc)
 
 	i = 0;
 	free_stack(msc->s_a);
+	ft_printf("DEBUG");
 	free_stack(msc->s_b);
+	ft_printf("DEBUG");
 	if (msc->strs_split != NULL)
 	{
 		while (msc->strs_split[i])
@@ -41,6 +43,7 @@ void	free_finished(t_msc *msc)
 		}
 		free_null(msc->strs_split);
 	}
+	ft_printf("DEBUG");
 	free_null(msc);
 	exit(1);
 }

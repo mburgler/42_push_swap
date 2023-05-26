@@ -2,6 +2,7 @@
     "files.associations": {
 		"ft_printf.h": "c",
 		"variant": "c",
-		"chrono": "c"
+		"chrono": "c",
+		"system_error": "c"
 	}
 }
