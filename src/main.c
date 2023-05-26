@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:43 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 14:37:50 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:22:36 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		exit(1);
-	msc = NULL;
 	msc = calloc_check_error(1, sizeof(t_msc));
 	init(msc);
 	if (argc == 2)
 	{
+		if (!argv[1][0])
+			free_finished(msc);
 		msc->strs_split = ft_split(argv[1], ' ');
 		parsing(msc->strs_split, msc);
 	}

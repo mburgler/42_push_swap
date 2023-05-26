@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:04:35 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 14:35:19 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:20:09 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ void	parsing(char **strs, t_msc *msc)
 		i = 1;
 	while (strs[i])
 	{
+		if (!strs[i][0])
+			error_message("Empty string", msc);
 		append_node(strs[i], msc);
 		i++;
 	}
