@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:39:43 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 16:36:12 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:50:48 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,6 @@ int	main(int argc, char **argv)
 	if (msc->nb_of_indexes + 1 <= 5)
 		sort_few(msc, msc->s_a);
 	else
-	{
 		binary_radix_sort(msc);
-		push_back(msc);
-	}
-	free_finished(msc);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 22:42:24 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 16:32:52 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:53:03 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	binary_radix_sort(t_msc *msc)
 		while (nb_elements != 0)
 		{
 			if (check_if_sorted(msc) == 1)
-				return ;
+				push_back(msc);
 			if (((msc->s_a->index >> bitshift) & 1) == 0)
 				push(msc, msc->s_b, msc->s_a);
 			else
@@ -75,6 +75,7 @@ void	binary_radix_sort(t_msc *msc)
 		binary_radix_sort_p2(msc, nb_elements, bitshift);
 		bitshift++;
 	}
+	push_back(msc);
 }
 
 void	binary_radix_sort_p2(t_msc *msc, int nb_elements, int bitshift)
@@ -82,7 +83,7 @@ void	binary_radix_sort_p2(t_msc *msc, int nb_elements, int bitshift)
 	while (nb_elements != 0)
 	{
 		if (check_if_sorted(msc) == 1)
-			return ;
+			push_back(msc);
 		if (((msc->s_b->index >> (bitshift + 1)) & 1) == 1)
 			push(msc, msc->s_a, msc->s_b);
 		else
@@ -100,5 +101,6 @@ void	push_back(t_msc *msc)
 	{
 		push(msc, msc->s_a, msc->s_b);
 		nb_elements--;
-	}	
+	}
+	free_finished(msc);
 }

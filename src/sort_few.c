@@ -6,7 +6,7 @@
 /*   By: mburgler <mburgler@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:08:39 by mburgler          #+#    #+#             */
-/*   Updated: 2023/05/26 14:37:56 by mburgler         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:52:35 by mburgler         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sort_few(t_msc *msc, t_list *s_a)
 {
 	if (check_if_sorted(msc) == 1)
-		return ;
+		push_back(msc);
 	if (msc->nb_of_indexes + 1 == 2)
 		swap_a(msc);
 	else if (msc->nb_of_indexes + 1 == 3)
@@ -34,6 +34,7 @@ void	sort_few(t_msc *msc, t_list *s_a)
 		push(msc, msc->s_a, msc->s_b);
 		push(msc, msc->s_a, msc->s_b);
 	}
+	push_back(msc);
 }
 
 void	min_to_top_push(t_msc *msc, int index)
